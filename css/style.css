@@ -9,6 +9,23 @@
   scroll-padding-top: 2rem;
 }
 
+::selection {
+  background: var(--main-color);
+  color: var(--text-color);
+}
+
+/* Custom ScrollBar */
+
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background: transparent;
+
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
 /* Some Variables */
 
 :root {
@@ -250,12 +267,10 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   padding: 14px;
-  background: linear-gradient(
-    8deg,
-    hsl(240 17%14% / 74%) 14%,
-    8deg,
-    hsl(240 17%14% / 14%) 44%
-  );
+  background: linear-gradient(8deg,
+      hsl(240 17%14% / 74%) 14%,
+      8deg,
+      hsl(240 17%14% / 14%) 44%);
   overflow: hidden;
 }
 
@@ -301,6 +316,80 @@ header {
 
 .movies-content {
   display: grid;
-  grid-template-columns:repeat(auto-fit, mix-max(247px, 1fr));
+  grid-template-columns: 247px 247px 247px 247px;
   gap: 1.5rem;
+}
+
+.movies-content .movie-box:hover .movie-box-img {
+  transform: scale(1.1);
+  transition: 0.5s linear;
+}
+
+/* Next Page */
+
+.next-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.next-btn {
+  background: var(--main-color);
+  padding: 12px 20px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.next-btn:hover {
+  background: var(--hover-color);
+  transition: 0.3s all linear;
+}
+
+/* COPYRIGHT */
+
+.copyright {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+
+@media (max-width: 1170px) {
+  .navbar {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: translateY(0);
+    flex-direction: row;
+    justify-content: space-evenly;
+    row-gap: 1px;
+    padding: 10px;
+    border-top: 1px solid hsl(200 100% 99% / 5%);
+    background: linear-gradient(8deg, hsl(240 17% 14% / 100%) 5%,hsl(240 17% 14% / 90%) 100%);
+    
+  }
+  .nav-link .bx {
+    font-size: 1.5rem;   
+  }
+  .copyright {
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 1060px){
+  .container {
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+
+@media (max-width:991px){
+  .movie-box {
+    height: 340px;
+  }
+  .movies-content {
+    display: grid;
+  }
 }
