@@ -1,9 +1,9 @@
 // Swipper
 let swiper = new Swiper(".popular-content", {
-    spaceBetween: 30,
-    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
     autoplay: {
-      delay: 2500,
+      delay: 5500,
       disableOnInteraction: false,
     },
     pagination: {
@@ -14,4 +14,26 @@ let swiper = new Swiper(".popular-content", {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    breakpoints: {
+      280: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      510: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      758: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+      },
+      900: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+    }
   });
