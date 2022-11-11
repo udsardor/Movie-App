@@ -37,3 +37,74 @@ let swiper = new Swiper(".popular-content", {
       },
     }
   });
+
+// APIs
+
+const API_KEY = '80bd6ae7-63fc-4756-9a69-a0f37595d632';
+const API_URL_POPULAR = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
+
+
+getMovies(API_URL_POPULAR);
+
+async function getMovies(url){
+  const resp = await fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      "X-API-KEY": API_KEY
+    }
+  })
+  const respData = await resp.json()
+  showMovies(respData)
+}
+
+
+// function showMovies(data){
+//     const moviesEl = document.querySelector(".swiper-wrapper")
+//     data.films.forEach(movie => {
+//         const movieEl = document.createElement("div")
+//         movieEl.classList.add("swipper-slide")
+//         movieEl.innerHTML = `
+//           <div class="swiper-slide">
+//             <div class="movie-box">
+//                 <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
+//                 <div class="box-text">
+//                     <h2 class="movie-title">${movie.nameRu}</h2>
+//                     <span class="movie-type">${movie.genres.map(
+//                       (genre) => `${genre.genre}`
+//                     )}</span>
+//                     <a href="#" class="watch-btn play-btn">
+//                         <i class="bx bx-right-arrow"></i>
+//                     </a>
+//                 </div>
+//             </div>
+//           </div>
+//         `
+//         moviesEl.appendChild(movieEl)
+//     });
+    
+// }
+
+function showMovies(data){
+  const moviesEl = document.querySelector("section.movies")
+  data.films.forEach(movie => {
+      const movieEl = document.createElement("div")
+      movieEl.classList.add("movies-content")
+      movieEl.innerHTML = `
+      <div class="movie-box">
+        <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
+          <div class="box-text">
+              <h2 class="movie-title">${movie.nameRu}</h2>
+              <span class="movie-type">${movie.genres.map(
+                (genre) => `${genre.genre}`
+                )}</span>
+              <a href="play-page.html" class="watch-btn play-btn">
+                  <i class="bx bx-right-arrow"></i>
+              </a>
+          </div>
+        </div>
+        
+      `
+      moviesEl.appendChild(movieEl)
+  });
+  
+}

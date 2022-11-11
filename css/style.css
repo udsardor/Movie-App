@@ -315,9 +315,9 @@ header {
 }
 
 .movies-content {
-  display: grid;
-  grid-template-columns: 247px 247px 247px 247px;
-  gap: 1.5rem;
+  display: flex;
+  width: 200px;
+  margin: 20px;
 }
 
 .movies-content .movie-box:hover .movie-box-img {
