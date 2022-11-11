@@ -391,5 +391,164 @@ header {
   }
   .movies-content {
     display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+  }
+}
+
+@media (max-width: 888px){
+  .nav {
+    padding: 14 0;
+  }
+  .home {
+    min-height: 440px;
+    margin-top: 4rem !important;
+  }
+  .home-text {
+    padding-left: 25px;
+  }
+  .home-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .watch-btn {
+    font-size: 0.9rem;
+  }
+  .movie-title {
+    font-size: 1rem;
+    padding-right: 30px;
+  }
+  .play-container {
+    bottom: 14rem;
+    right: 4rem;
+  }
+  .cast {
+    justify-content: center;
+  }
+  .movies-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 10px;
+  }
+}
+
+/* Medium Devices */
+
+@media (max-width: 768px){
+  .nav {
+    padding: 11px 0;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+  section {
+    padding: 2rem 0;
+  }
+  .home-img {
+    object-position: left;
+  }
+  .movie-type {
+    font-size: 0.875rem;
+    margin-top: 2px;
+  }
+  .tags span,
+  .about-movie p {
+    font-size: 0.875rem;
+  }
+  p {
+    font-size: 0.875rem;
+  }
+  .play-text h2,
+  .about-movie h2{
+    font-size: 1.3rem;
+  }
+  .play-movie {
+    bottom: 10rem;
+    right: 2rem;
+  }
+  .movies-content {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+@media (max-width:514px){
+  .home {
+    min-height: 380px;
+  }
+  .heading {
+    padding: 2px 14px;
+  }
+  .heading-title {
+    font-size: 1rem;
+  }
+  .play-text {
+    padding: 20px;
+  }
+  .play-movie {
+    bottom: 4rem;
+  }
+  .video-box {
+    width: 94%;
+  }
+  .cast-heading {
+    font-size: 1.1rem;
+  }
+  .cast-title {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 408px){
+  * {
+    scroll-padding-top: 5rem;
+  }
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 5px;
+  }
+  .search-box {
+    max-width: 100%;
+    width: 100%;
+    border-radius:4px;
+    order: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .home, 
+  .play-container {
+    margin-top: 7rem !important;
+  }
+  .movie-box {
+    height: 300px;
+  }
+  .movies-content {
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 1rem;
+  }
+}
+
+/* For Small Devices */
+
+@media (max-width: 370px){
+  .home {
+    min-height: 300px;
+  }
+  .movie-box {
+    height: 285px;
+  }
+  .user-img, .watch-btn .bx {
+    width: 35px;
+    height: 35px;
+  }
+  .nav-link {
+    font-size: 1.4rem;
+  }
+  .about-movie p {
+    text-align: justify;
+  }
+  .download-links {
+    grid-template-columns: 1fr;
   }
 }
