@@ -58,53 +58,57 @@ async function getMovies(url){
 }
 
 
-// function showMovies(data){
-//     const moviesEl = document.querySelector(".swiper-wrapper")
-//     data.films.forEach(movie => {
-//         const movieEl = document.createElement("div")
-//         movieEl.classList.add("swipper-slide")
-//         movieEl.innerHTML = `
-//           <div class="swiper-slide">
-//             <div class="movie-box">
-//                 <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
-//                 <div class="box-text">
-//                     <h2 class="movie-title">${movie.nameRu}</h2>
-//                     <span class="movie-type">${movie.genres.map(
-//                       (genre) => `${genre.genre}`
-//                     )}</span>
-//                     <a href="#" class="watch-btn play-btn">
-//                         <i class="bx bx-right-arrow"></i>
-//                     </a>
-//                 </div>
-//             </div>
-//           </div>
-//         `
-//         moviesEl.appendChild(movieEl)
-//     });
-    
-// }
-
 function showMovies(data){
-  const moviesEl = document.querySelector("section.movies")
-  data.films.forEach(movie => {
-      const movieEl = document.createElement("div")
-      movieEl.classList.add("movies-content")
-      movieEl.innerHTML = `
-      <div class="movie-box">
-        <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
-          <div class="box-text">
-              <h2 class="movie-title">${movie.nameRu}</h2>
-              <span class="movie-type">${movie.genres.map(
-                (genre) => `${genre.genre}`
-                )}</span>
-              <a href="play-page.html" class="watch-btn play-btn">
-                  <i class="bx bx-right-arrow"></i>
-              </a>
+    const moviesEl = document.querySelector(".swiper-wrapper")
+    data.films.forEach(movie => {
+        const movieEl = document.createElement("div")
+        movieEl.classList.add("swipper-slide")
+        movie.rating > 6 ? 
+        movieEl.innerHTML = `
+          <div class="swiper-slide">
+            <div class="movie-box">
+                <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">${movie.nameEn ? movie.nameEn : movie.nameRu}</h2>
+                    <span class="movie-type">${movie.genres.map(
+                      (genre) => `${genre.genre}`
+                    )}</span>
+                    <a href="#" class="watch-btn play-btn">
+                        <i class="bx bx-right-arrow"></i>
+                    </a>
+                </div>
+            </div>
           </div>
-        </div>
-        
-      `
-      moviesEl.appendChild(movieEl)
-  });
-  
+        ` : ""
+        moviesEl.appendChild(movieEl)
+    });
+    
 }
+
+// function showMovies(data){
+//   const moviesEl = document.querySelector("section.movies")
+//   data.films.forEach(movie => {
+//     if(movie.rating > 8){
+//       console.log(movie.rating)
+//     }
+//       const movieEl = document.createElement("div")
+//       movieEl.classList.add("movies-content")
+//       movieEl.innerHTML = `
+//       <div class="movie-box">
+//         <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
+//           <div class="box-text">
+//               <h2 class="movie-title">${movie.nameRu}</h2>
+//               <span class="movie-type">${movie.genres.map(
+//                 (genre) => `${genre.genre}`
+//                 )}</span>
+//               <a href="play-page.html" class="watch-btn play-btn">
+//                   <i class="bx bx-right-arrow"></i>
+//               </a>
+//           </div>
+//         </div>
+        
+//       `
+//       moviesEl.appendChild(movieEl)
+//   });
+  
+// }
