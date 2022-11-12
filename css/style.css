@@ -319,9 +319,8 @@ header {
 }
 
 .movies-content {
-  display: flex;
-  width: 200px;
-  margin: 20px;
+  display: inline-block;
+  
 }
 
 .movies-content .movie-box:hover .movie-box-img {

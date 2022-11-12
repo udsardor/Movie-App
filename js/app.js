@@ -55,6 +55,7 @@ async function getMovies(url){
   })
   const respData = await resp.json()
   showMovies(respData)
+  showMoviesAll(respData)
 }
 
 
@@ -85,30 +86,27 @@ function showMovies(data){
     
 }
 
-// function showMovies(data){
-//   const moviesEl = document.querySelector("section.movies")
-//   data.films.forEach(movie => {
-//     if(movie.rating > 8){
-//       console.log(movie.rating)
-//     }
-//       const movieEl = document.createElement("div")
-//       movieEl.classList.add("movies-content")
-//       movieEl.innerHTML = `
-//       <div class="movie-box">
-//         <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
-//           <div class="box-text">
-//               <h2 class="movie-title">${movie.nameRu}</h2>
-//               <span class="movie-type">${movie.genres.map(
-//                 (genre) => `${genre.genre}`
-//                 )}</span>
-//               <a href="play-page.html" class="watch-btn play-btn">
-//                   <i class="bx bx-right-arrow"></i>
-//               </a>
-//           </div>
-//         </div>
+function showMoviesAll(data){
+  const moviesEl = document.querySelector("section.movies")
+  data.films.forEach(movie => {
+      const movieEl = document.createElement("div")
+      movieEl.classList.add("movies-content")
+      movieEl.innerHTML = `
+      <div class="movie-box">
+        <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie-box-img">
+          <div class="box-text">
+              <h2 class="movie-title">${movie.nameRu}</h2>
+              <span class="movie-type">${movie.genres.map(
+                (genre) => `${genre.genre}`
+                )}</span>
+              <a href="play-page.html" class="watch-btn play-btn">
+                  <i class="bx bx-right-arrow"></i>
+              </a>
+          </div>
+        </div>
         
-//       `
-//       moviesEl.appendChild(movieEl)
-//   });
+      `
+      moviesEl.appendChild(movieEl)
+  });
   
-// }
+}
