@@ -43,7 +43,7 @@ let swiper = new Swiper(".popular-content", {
 
 const API_KEY = '80bd6ae7-63fc-4756-9a69-a0f37595d632';
 const API_URL_POPULAR = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
-
+const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword="
 
 getMovies(API_URL_POPULAR);
 
